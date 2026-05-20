@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Base ── */
+* { box-sizing: border-box; }
+body {
+  background: #F7F4EF;
+  font-family: 'DM Sans', sans-serif;
+  color: #1a1917;
+  margin: 0;
+}
+
+/* ── Typography ── */
+.serif { font-family: 'DM Serif Display', Georgia, serif; }
+
+/* ── Grain overlay ── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+.page-content { position: relative; z-index: 1; }
+
+/* ── Animations ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.fade-up.in { opacity: 1; transform: translateY(0); }
+
+/* ── Shared UI ── */
+.divider { height: 0.5px; background: #E0DDD5; margin: 0 2.5rem; }
+
+.ghost-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #6B6860;
+  text-decoration: none;
+  transition: color 0.2s, gap 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.ghost-link:hover { color: #1a1917; gap: 10px; }
+
+.cta-btn {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  color: #F7F4EF;
+  background: #1a1917;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.cta-btn:hover { background: #2e2d2a; transform: translateY(-1px); }
+
+.stack-pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 0.5px solid;
+  background: transparent;
+  letter-spacing: 0.02em;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.project-card {
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: transform 0.22s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+.project-card:hover { transform: translateY(-3px); }
+
+.service-card {
+  background: rgba(255,255,255,0.65);
+  border: 0.5px solid #E0DDD5;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, background 0.2s;
+  backdrop-filter: blur(6px);
+}
+.service-card:hover {
+  border-color: #B87A5A;
+  background: rgba(255,255,255,0.85);
+}
+
+.about-tag {
+  font-size: 12px;
+  color: #9B9890;
+  border: 0.5px solid #383530;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-h1 { font-size: 40px !important; }
+  .projects-grid { grid-template-columns: 1fr !important; }
+  .featured-inner { grid-template-columns: 1fr !important; }
+  .services-grid { grid-template-columns: 1fr !important; }
+  .about-grid { grid-template-columns: 1fr !important; }
+  .principles-grid { grid-template-columns: 1fr !important; }
+  .wide-card { grid-column: span 1 !important; }
+}
+
+/* About teaser grid */
+@media (max-width: 768px) {
+  .about-teaser-grid { grid-template-columns: 1fr !important; }
+  .background-grid { grid-template-columns: 1fr !important; }
+  .about-page-grid { grid-template-columns: 1fr !important; }
+  .work-grid { grid-template-columns: 1fr !important; }
+  .contact-grid { grid-template-columns: 1fr !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+}
