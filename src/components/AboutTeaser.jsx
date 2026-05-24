@@ -7,8 +7,14 @@ export default function AboutTeaser() {
   const ref = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <div style={{ background: '#2C2A27', padding: '4rem 2.5rem', position: 'relative', overflow: 'hidden' }}>
-      {/* Grain */}
+    <div className="snap-section" style={{
+      minHeight: '100dvh',
+      display: 'flex', flexDirection: 'column', justifyContent: 'center',
+      padding: '4rem 2rem',
+      background: '#2C2A27',
+      scrollSnapAlign: 'start',
+      position: 'relative', overflow: 'hidden',
+    }}>
       <div style={{
         position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none',
         backgroundImage: GRAIN, backgroundRepeat: 'repeat', backgroundSize: '200px 200px',
@@ -18,17 +24,17 @@ export default function AboutTeaser() {
         ref={ref}
         className="fade-up about-teaser-grid"
         style={{
-          maxWidth: 1100, margin: '0 auto',
+          maxWidth: 1100, margin: '0 auto', width: '100%',
           display: 'grid', gridTemplateColumns: '280px 1fr',
           gap: '3.5rem', alignItems: 'center',
           position: 'relative', zIndex: 1,
         }}
       >
-        {/* Photo */}
         <div style={{
           borderRadius: 14, overflow: 'hidden',
           border: '0.5px solid #3a3835',
           aspectRatio: '1 / 1',
+          maxWidth: 280,
         }}>
           <img
             src="/leo.jpg"
@@ -37,7 +43,6 @@ export default function AboutTeaser() {
           />
         </div>
 
-        {/* Copy */}
         <div>
           <div style={{
             fontSize: 11, fontWeight: 500, letterSpacing: '0.12em',
@@ -50,15 +55,15 @@ export default function AboutTeaser() {
           </div>
 
           <h2 className="serif" style={{
-            fontSize: 34, lineHeight: 1.1, letterSpacing: '-0.02em',
-            color: '#F7F4EF', marginBottom: '1rem',
+            fontSize: 'clamp(26px, 4vw, 38px)', lineHeight: 1.08,
+            letterSpacing: '-0.02em', color: '#F7F4EF', marginBottom: '1.25rem',
           }}>
             I came up in the creative economy. Now I build for it.
           </h2>
 
           <p style={{
-            fontSize: 15, lineHeight: 1.8, color: '#9B9890',
-            fontWeight: 300, marginBottom: '1.5rem', maxWidth: 520,
+            fontSize: 'clamp(13px, 1.5vw, 15px)', lineHeight: 1.8,
+            color: '#9B9890', fontWeight: 300, marginBottom: '1.75rem', maxWidth: 480,
           }}>
             Fifteen years in Chicago — engineering audio at venues, running an art gallery, screen printing. That same curiosity pulled me into web development. I build for independents because I am one.
           </p>
@@ -67,8 +72,8 @@ export default function AboutTeaser() {
             More about me →
           </Link>
         </div>
-
       </div>
     </div>
   );
 }
+
