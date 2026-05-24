@@ -11,11 +11,9 @@ export default function HeroSection() {
 
   return (
     <div className="snap-section" style={{
-      minHeight: '100dvh',
       display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
       textAlign: 'center',
-      padding: '5rem 1.5rem 4rem',
-      scrollSnapAlign: 'start',
+      padding: '0 1.5rem',
       background: '#F7F4EF',
       position: 'relative',
     }}>
@@ -32,7 +30,7 @@ export default function HeroSection() {
           <span style={{ display: 'inline-block', width: 20, height: 1, background: '#B87A5A' }} />
         </div>
 
-        <h1 className="serif hero-h1" style={{
+        <h1 className="serif" style={{
           fontSize: 'clamp(36px, 7vw, 72px)',
           lineHeight: 1.04,
           letterSpacing: '-0.03em', color: '#1a1917',
@@ -68,7 +66,6 @@ export default function HeroSection() {
 
       </div>
 
-      {/* Scroll hint */}
       <div style={{
         position: 'absolute', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)',
         display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
