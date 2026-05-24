@@ -1,12 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
- 
+
 const Navbar = () => {
   const location = useLocation();
   const [navbarVisible, setNavbarVisible] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
   const [atTop, setAtTop] = useState(true);
- 
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
@@ -23,7 +23,7 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScroll]);
- 
+
   const navLink = (to, label) => {
     const isActive = location.pathname === to;
     return (
@@ -53,12 +53,11 @@ const Navbar = () => {
       </Link>
     );
   };
- 
+
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
- 
         .nav-link-item::after {
           content: '';
           position: absolute;
@@ -69,7 +68,6 @@ const Navbar = () => {
         }
         .nav-link-item:hover { color: #1a1917 !important; }
         .nav-link-item:hover::after { width: 100%; }
- 
         .nav-cta {
           font-size: 13px;
           font-weight: 500;
@@ -84,8 +82,12 @@ const Navbar = () => {
         .nav-cta:hover { color: #B87A5A; }
         .nav-cta .arrow { display: inline-block; transition: transform 0.2s ease; }
         .nav-cta:hover .arrow { transform: translateX(3px); }
+
+        @media (max-width: 600px) {
+          .nav-links { display: none !important; }
+        }
       `}</style>
- 
+
       <div style={{
         position: 'fixed',
         top: 0, left: 0, right: 0,
@@ -96,16 +98,18 @@ const Navbar = () => {
         backdropFilter: atTop ? 'none' : 'blur(14px)',
         WebkitBackdropFilter: atTop ? 'none' : 'blur(14px)',
         transition: 'transform 0.3s ease, background 0.4s ease, border-color 0.4s ease',
+        height: 64,
+        display: 'flex', alignItems: 'center',
       }}>
         <nav style={{
           maxWidth: 1100,
           margin: '0 auto',
-          padding: '1.125rem 2.5rem',
+          padding: '0 1.5rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          width: '100%',
         }}>
- 
           <Link to="/" style={{
             fontSize: 15,
             fontWeight: 500,
@@ -116,24 +120,21 @@ const Navbar = () => {
           }}>
             Leo Dorsey
           </Link>
- 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+
+          <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
             {navLink('/work', 'Work')}
             {navLink('/services', 'Services')}
             {navLink('/about', 'About')}
             {navLink('/contact', 'Contact')}
           </div>
- 
+
           <Link to="/contact" className="nav-cta">
             Let's talk <span className="arrow">→</span>
           </Link>
- 
         </nav>
       </div>
- 
-      <div style={{ height: 72 }} />
     </>
   );
 };
- 
+
 export default Navbar;
