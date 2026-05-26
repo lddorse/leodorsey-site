@@ -158,3 +158,10 @@ body {
   .service-lane-grid { grid-template-columns: 1fr !important; }
   .process-grid { grid-template-columns: 1fr !important; }
 }
+
+/* Services page */
+@media (max-width: 768px) {
+  .service-lane-grid { grid-template-columns: 1fr !important; }
+  .process-grid { grid-template-columns: 1fr !important; }
+  .consulting-grid { grid-template-columns: 1fr !important; }
+}
