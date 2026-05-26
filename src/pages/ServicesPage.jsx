@@ -10,7 +10,7 @@ const services = [
     tagline: 'A custom site that looks and feels like you.',
     price: 'From $600',
     timeline: '2–3 weeks',
-    who: 'Bars, venues, artists, musicians, small local businesses, nonprofits.',
+    who: 'Bars, venues, artists, musicians, small local businesses, nonprofits — anyone who needs a real web presence without agency prices.',
     desc: 'A fully custom designed website — no themes, no templates, no page builders. Before anything gets built, we talk about how you work, what you already use, and what you actually need. Sometimes that conversation changes the scope. Sometimes it saves you money. Either way, you get something built for your situation, not a generic one.',
     deliverables: [
       'Custom design and full build',
