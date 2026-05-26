@@ -118,7 +118,7 @@ const Navbar = () => {
             fontFamily: "'DM Sans', sans-serif",
             letterSpacing: '-0.015em',
           }}>
-            Leo Dorsey
+            Leo
           </Link>
 
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
