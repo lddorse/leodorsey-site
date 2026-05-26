@@ -11,7 +11,7 @@ const services = [
     price: 'From $600',
     timeline: '2–3 weeks',
     who: 'Bars, venues, artists, musicians, small local businesses, nonprofits.',
-    desc: 'You get a fully custom designed website — no themes, no templates, no page builders. I design in your visual language, not mine. Every project starts with a conversation about how you work, what you already use, and what you actually need.',
+    desc: 'A fully custom designed website — no themes, no templates, no page builders. Before anything gets built, we talk about how you work, what you already use, and what you actually need. Sometimes that conversation changes the scope. Sometimes it saves you money. Either way, you get something built for your situation, not a generic one.',
     deliverables: [
       'Custom design and full build',
       'Up to 5 pages',
@@ -22,12 +22,13 @@ const services = [
       '2 rounds of revisions',
       '30 days of post-launch support',
     ],
-    example: 'Our Bar — fundraising landing page for a community bar revival in Penfield, IL.',
-    exampleUrl: 'https://ourbar.com',
-    bg: '#FFF8F5', border: '#F5C4B3',
-    tagBg: '#FAECE7', tagColor: '#993C1D',
-    titleColor: '#7A2E13',
-    accentColor: '#D85A30',
+    example: 'Elo Sec',
+    exampleDesc: 'Custom platform site for a self-hosted security infrastructure project.',
+    exampleUrl: 'https://elosec.tech',
+    bg: '#EEF2F7', border: '#BFD0E8',
+    tagBg: '#DDE7F5', tagColor: '#1A3A5C',
+    titleColor: '#1A3A5C',
+    accentColor: '#2A5C8A',
   },
   {
     n: '02',
@@ -36,20 +37,22 @@ const services = [
     price: 'From $1,500',
     timeline: '3–5 weeks',
     who: 'Independent makers, artists selling prints or merch, nonprofits running campaigns, bars running fundraisers.',
-    desc: 'Stripe integration, inventory management, and checkout flows built around whatever you already use — not whatever\'s easiest for me to build. If you manage your inventory in a spreadsheet, we build around that. No platform fees, no lock-in, no monthly subscription to a store builder.',
+    desc: 'Stripe integration, inventory management, and donation or checkout flows built around whatever you already use — not whatever\'s easiest to build. If you manage inventory in a spreadsheet, we build around that. No platform fees, no lock-in, no monthly subscription to a store builder.',
     deliverables: [
-      'Custom storefront or campaign page design and build',
+      'Custom storefront or fundraising page design and build',
       'Stripe payment integration',
-      'Inventory management built around your existing workflow',
-      'Order confirmation emails',
+      'Inventory or campaign management built around your workflow',
+      'Order or donation confirmation emails',
       'Mobile responsive',
       'Deployed on your own accounts',
       'Your code, your data, your customers',
       '2 rounds of revisions',
       '30 days of post-launch support',
     ],
-    example: 'Sacred Prints — custom e-commerce storefront with Google Sheets inventory sync for a screen printing business.',
-    exampleUrl: 'https://sacred-prints.com',
+    examples: [
+      { name: 'Sacred Prints', desc: 'Custom e-commerce storefront with Google Sheets inventory sync.', url: 'https://sacred-prints.com' },
+      { name: 'Our Bar', desc: 'Donation and fundraising platform for a community bar revival.', url: 'https://ourbarpenfield.com' },
+    ],
     bg: '#FAEEDA', border: '#FAC775',
     tagBg: '#F5DFB0', tagColor: '#633806',
     titleColor: '#633806',
@@ -62,7 +65,7 @@ const services = [
     price: 'From $3,000',
     timeline: '5–10 weeks',
     who: 'Organizations that need user accounts, member portals, dashboards, or anything that requires a database.',
-    desc: 'When you need more than a website — user authentication, a real database, admin dashboards, automated workflows. I build full-stack applications designed for non-technical end users. Security-aware by default, because that\'s my background.',
+    desc: 'When you need more than a website — user authentication, a real database, admin dashboards, automated workflows. Built for non-technical end users who shouldn\'t need to think about the technology. Security-aware by default, because that\'s my background.',
     deliverables: [
       'Full-stack application design and build',
       'User authentication and account management',
@@ -74,7 +77,8 @@ const services = [
       'Documentation so you can manage it yourself',
       '60 days of post-launch support',
     ],
-    example: 'Danville Pedestrian Club — member management, route logging, and event tracking for a local walking club.',
+    example: 'Danville Pedestrian Club',
+    exampleDesc: 'Member management, route logging, and event tracking for a local walking club.',
     exampleUrl: 'https://danville-pedestrian-club.vercel.app',
     bg: '#EAF3DE', border: '#C0DD97',
     tagBg: '#D5EAB7', tagColor: '#27500A',
@@ -91,8 +95,8 @@ const process = [
   },
   {
     n: '02',
-    title: 'We figure out how you work',
-    body: 'Before I write a line of code, I want to understand your workflow — what tools you use, what you\'re comfortable with, what would actually fit your life. The site gets built around those constraints.',
+    title: 'We figure out what you actually need',
+    body: 'Before I write a line of code, I want to understand your situation — what tools you use, what you\'re comfortable with, what would fit your life. Sometimes that changes the scope. Sometimes I recommend something simpler. Either way, you get the right solution.',
   },
   {
     n: '03',
@@ -107,18 +111,22 @@ const process = [
   {
     n: '05',
     title: '50% on launch, everything is yours',
-    body: 'Final payment on launch day. Everything — the code, the domain, the hosting accounts — lives under your name. You could never talk to me again and your site keeps running.',
+    body: 'Final payment on launch day. The code, the domain, the hosting — all under your name. You could never talk to me again and your site keeps running.',
   },
 ];
 
 const faqs = [
+  {
+    q: 'What if I don\'t know what I need?',
+    a: 'That\'s actually where I\'m most useful. Tell me what problem you\'re trying to solve and I\'ll figure out the right approach. Sometimes that\'s a custom build. Sometimes it\'s a simpler tool that costs you nothing. I\'d rather give you the right answer than sell you a project you don\'t need.',
+  },
   {
     q: 'What if I need changes after launch?',
     a: 'Every project includes 30–60 days of post-launch support for bug fixes and small adjustments. After that, I offer ongoing support at an hourly rate, or I can hand off the code and documentation so you or someone else can manage it.',
   },
   {
     q: 'Do I need to know anything technical?',
-    a: 'No. I\'ve built for people who had never heard of a CMS and for developers who wanted a second set of eyes. The whole point is that the end result fits how you actually work — not how a developer thinks you should work.',
+    a: 'No. The whole point is that the end result fits how you actually work — not how a developer thinks you should work. I\'ve built for people who had never heard of a CMS and for people who run their own servers.',
   },
   {
     q: 'What if my budget is smaller than your starting prices?',
@@ -133,10 +141,7 @@ const faqs = [
 function FAQItem({ item }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{
-      borderTop: '0.5px solid #E0DDD5',
-      padding: '1.25rem 0',
-    }}>
+    <div style={{ borderTop: '0.5px solid #E0DDD5', padding: '1.25rem 0' }}>
       <button
         onClick={() => setOpen(!open)}
         style={{
@@ -162,8 +167,89 @@ function FAQItem({ item }) {
   );
 }
 
+function ServiceCard({ s }) {
+  const ref = useScrollReveal({ threshold: 0.08 });
+  return (
+    <div
+      ref={ref}
+      className="fade-up service-lane-grid"
+      style={{
+        background: s.bg,
+        border: `0.5px solid ${s.border}`,
+        borderRadius: 16,
+        padding: '2rem',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '3rem',
+      }}
+    >
+      {/* Left */}
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: '1rem' }}>
+          <span style={{ fontSize: 11, fontWeight: 500, color: s.accentColor, letterSpacing: '0.1em' }}>{s.n}</span>
+          <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '3px 10px', borderRadius: 100, background: s.tagBg, color: s.tagColor }}>{s.title}</span>
+        </div>
+        <h2 className="serif" style={{ fontSize: 26, color: s.titleColor, marginBottom: 8, letterSpacing: '-0.01em' }}>{s.tagline}</h2>
+        <p style={{ fontSize: 13, lineHeight: 1.75, color: '#6B6860', marginBottom: '1.25rem', fontWeight: 300 }}>{s.desc}</p>
+
+        <div style={{ display: 'flex', gap: '2rem', marginBottom: '1.25rem' }}>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 500, color: s.accentColor, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>Starting at</div>
+            <div style={{ fontSize: 20, fontWeight: 500, color: s.titleColor, fontFamily: "'DM Serif Display', Georgia, serif" }}>{s.price}</div>
+          </div>
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 500, color: s.accentColor, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>Timeline</div>
+            <div style={{ fontSize: 20, fontWeight: 500, color: s.titleColor, fontFamily: "'DM Serif Display', Georgia, serif" }}>{s.timeline}</div>
+          </div>
+        </div>
+
+        <div style={{ fontSize: 12, color: '#9B9890', marginBottom: '1.5rem', fontStyle: 'italic' }}>
+          Good for: {s.who}
+        </div>
+
+        {s.examples ? (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <div style={{ fontSize: 11, fontWeight: 500, color: s.accentColor, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 2 }}>Examples</div>
+            {s.examples.map(ex => (
+              <a key={ex.name} href={ex.url} target="_blank" rel="noopener noreferrer" style={{
+                fontSize: 12, color: s.accentColor, textDecoration: 'none', fontWeight: 500,
+                display: 'flex', alignItems: 'center', gap: 4,
+              }}>
+                {ex.name} ↗ <span style={{ color: '#9B9890', fontWeight: 300 }}>— {ex.desc}</span>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <a href={s.exampleUrl} target="_blank" rel="noopener noreferrer" style={{
+            fontSize: 12, color: s.accentColor, textDecoration: 'none',
+            display: 'flex', alignItems: 'center', gap: 4, fontWeight: 500,
+          }}>
+            {s.example} ↗ <span style={{ color: '#9B9890', fontWeight: 300 }}>— {s.exampleDesc}</span>
+          </a>
+        )}
+      </div>
+
+      {/* Right — deliverables */}
+      <div>
+        <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.1em', color: s.accentColor, textTransform: 'uppercase', marginBottom: '1rem' }}>
+          What's included
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {s.deliverables.map((d, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+              <span style={{ color: s.accentColor, fontSize: 14, flexShrink: 0, marginTop: 1 }}>✦</span>
+              <span style={{ fontSize: 13, color: '#4a4845', lineHeight: 1.5 }}>{d}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ServicesPage() {
   const headingRef = useScrollReveal();
+  const consultingRef = useScrollReveal({ threshold: 0.1 });
   const processRef = useScrollReveal({ threshold: 0.05 });
   const faqRef = useScrollReveal({ threshold: 0.05 });
 
@@ -193,9 +279,15 @@ export default function ServicesPage() {
             </h1>
             <p style={{
               fontSize: 16, lineHeight: 1.75, color: '#6B6860',
-              fontWeight: 300, maxWidth: 540,
+              fontWeight: 300, maxWidth: 560, marginBottom: '1rem',
             }}>
               Before I write a line of code, I want to understand how you work — what tools you use, what you're comfortable with, what would actually fit your life. Everything follows from that.
+            </p>
+            <p style={{
+              fontSize: 16, lineHeight: 1.75, color: '#6B6860',
+              fontWeight: 300, maxWidth: 560,
+            }}>
+              Sometimes the right solution isn't a custom build at all. I'll tell you that too.
             </p>
           </div>
         </div>
@@ -205,74 +297,38 @@ export default function ServicesPage() {
         {/* ── SERVICE LANES ── */}
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '4rem 2.5rem' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-            {services.map((s, i) => {
-              const ref = useScrollReveal({ threshold: 0.08 });
-              return (
-                <div
-                  key={s.n}
-                  ref={ref}
-                  className="fade-up"
-                  style={{
-                    background: s.bg,
-                    border: `0.5px solid ${s.border}`,
-                    borderRadius: 16,
-                    padding: '2rem',
-                    display: 'grid',
-                    gridTemplateColumns: '1fr 1fr',
-                    gap: '3rem',
-                  }}
-                  className="fade-up service-lane-grid"
-                >
-                  {/* Left */}
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: '1rem' }}>
-                      <span style={{ fontSize: 11, fontWeight: 500, color: s.accentColor, letterSpacing: '0.1em' }}>{s.n}</span>
-                      <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.06em', textTransform: 'uppercase', padding: '3px 10px', borderRadius: 100, background: s.tagBg, color: s.tagColor }}>{s.title}</span>
-                    </div>
-                    <h2 className="serif" style={{ fontSize: 28, color: s.titleColor, marginBottom: 8, letterSpacing: '-0.01em' }}>{s.tagline}</h2>
-                    <p style={{ fontSize: 13, lineHeight: 1.75, color: '#6B6860', marginBottom: '1.25rem', fontWeight: 300 }}>{s.desc}</p>
+            {services.map(s => <ServiceCard key={s.n} s={s} />)}
+          </div>
+        </div>
 
-                    <div style={{ display: 'flex', gap: '2rem', marginBottom: '1.25rem' }}>
-                      <div>
-                        <div style={{ fontSize: 11, fontWeight: 500, color: s.accentColor, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>Starting at</div>
-                        <div style={{ fontSize: 22, fontWeight: 500, color: s.titleColor, fontFamily: "'DM Serif Display', Georgia, serif" }}>{s.price}</div>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: 11, fontWeight: 500, color: s.accentColor, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 4 }}>Timeline</div>
-                        <div style={{ fontSize: 22, fontWeight: 500, color: s.titleColor, fontFamily: "'DM Serif Display', Georgia, serif" }}>{s.timeline}</div>
-                      </div>
-                    </div>
-
-                    <div style={{ fontSize: 12, color: '#9B9890', marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                      Good for: {s.who}
-                    </div>
-
-                    <a href={s.exampleUrl} target="_blank" rel="noopener noreferrer" style={{
-                      fontSize: 12, color: s.accentColor, textDecoration: 'none',
-                      display: 'flex', alignItems: 'center', gap: 4,
-                      fontWeight: 500,
-                    }}>
-                      See example: {s.example.split('—')[0].trim()} ↗
-                    </a>
-                  </div>
-
-                  {/* Right — deliverables */}
-                  <div>
-                    <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.1em', color: s.accentColor, textTransform: 'uppercase', marginBottom: '1rem' }}>
-                      What's included
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                      {s.deliverables.map((d, i) => (
-                        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
-                          <span style={{ color: s.accentColor, fontSize: 14, flexShrink: 0, marginTop: 1 }}>✦</span>
-                          <span style={{ fontSize: 13, color: '#4a4845', lineHeight: 1.5 }}>{d}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+        {/* ── CONSULTING STRIP ── */}
+        <div style={{ height: '0.5px', background: '#E0DDD5', margin: '0 2.5rem' }} />
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '3rem 2.5rem' }}>
+          <div ref={consultingRef} className="fade-up" style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center',
+          }} className="fade-up consulting-grid">
+            <div>
+              <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: '0.12em', color: '#B87A5A', textTransform: 'uppercase', marginBottom: 8 }}>Not sure what you need?</div>
+              <h2 className="serif" style={{ fontSize: 28, color: '#1a1917', letterSpacing: '-0.01em', marginBottom: 12 }}>
+                Sometimes a conversation is the right first step.
+              </h2>
+              <p style={{ fontSize: 14, lineHeight: 1.8, color: '#6B6860', fontWeight: 300, margin: 0 }}>
+                If you're not sure what you need — or you're using something old and wondering if there's a better way — I'm happy to just talk through it. No pitch, no pressure. I'll give you an honest read on your situation and what I'd recommend, whether that's working with me or not.
+              </p>
+            </div>
+            <div style={{
+              background: '#fff', border: '0.5px solid #E0DDD5',
+              borderRadius: 14, padding: '1.75rem',
+            }}>
+              <div style={{ fontSize: 11, fontWeight: 500, color: '#B87A5A', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>Strategy & Consulting</div>
+              <div style={{ fontSize: 28, fontFamily: "'DM Serif Display', Georgia, serif", color: '#1a1917', marginBottom: 8 }}>$100 / hr</div>
+              <p style={{ fontSize: 13, color: '#6B6860', lineHeight: 1.7, marginBottom: '1.25rem', fontWeight: 300 }}>
+                A focused 1-hour call where I assess your current setup, understand your goals, and give you a clear recommendation — what to build, what to change, or what to leave alone.
+              </p>
+              <Link to="/contact" className="ghost-link" style={{ fontSize: 13 }}>
+                Book a call →
+              </Link>
+            </div>
           </div>
         </div>
 
