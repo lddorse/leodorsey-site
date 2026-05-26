@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import WorkPreview from '../components/WorkPreview';
@@ -6,71 +6,37 @@ import AboutTeaser from '../components/AboutTeaser';
 import ContactCTA from '../components/ContactCTA';
 
 export default function HomePage() {
-  const isScrolling = useRef(false);
-  const currentSection = useRef(0);
-  const touchStartY = useRef(0);
   const [active, setActive] = useState(0);
   const totalSections = 5;
 
-const goToSection = (index) => {
-  if (index < 0 || index >= totalSections) return;
-  if (isScrolling.current) return;
-  const sections = document.querySelectorAll('.snap-section');
-  console.log('sections found:', sections.length, 'going to:', index);
-  const el = sections[index];
-  if (!el) return;
-  isScrolling.current = true;
-  currentSection.current = index;
-  setActive(index);
-  el.scrollIntoView({ behavior: 'smooth' });
-  setTimeout(() => { isScrolling.current = false; }, 1000);
-};
+  // Track which section is visible for dot nav
   useEffect(() => {
-    const handleWheel = (e) => {
-      e.preventDefault();
-      if (isScrolling.current) return;
-      if (e.deltaY > 20) goToSection(currentSection.current + 1);
-      else if (e.deltaY < -20) goToSection(currentSection.current - 1);
-    };
-
-    const handleTouchStart = (e) => {
-      touchStartY.current = e.touches[0].clientY;
-    };
-
-    const handleTouchEnd = (e) => {
-      if (isScrolling.current) return;
-      const diff = touchStartY.current - e.changedTouches[0].clientY;
-      if (Math.abs(diff) < 40) return;
-      if (diff > 0) goToSection(currentSection.current + 1);
-      else goToSection(currentSection.current - 1);
-    };
-
-    const handleKey = (e) => {
-      if (isScrolling.current) return;
-      if (e.key === 'ArrowDown' || e.key === 'PageDown') goToSection(currentSection.current + 1);
-      if (e.key === 'ArrowUp' || e.key === 'PageUp') goToSection(currentSection.current - 1);
-    };
-
-    document.addEventListener('wheel', handleWheel, { passive: false });
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd, { passive: true });
-    window.addEventListener('keydown', handleKey);
-
-    return () => {
-      document.removeEventListener('wheel', handleWheel);
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
-      window.removeEventListener('keydown', handleKey);
-    };
+    const sections = document.querySelectorAll('.snap-section');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Array.from(sections).indexOf(entry.target);
+            if (index !== -1) setActive(index);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
   }, []);
+
+  const goToSection = (index) => {
+    const sections = document.querySelectorAll('.snap-section');
+    if (sections[index]) {
+      sections[index].scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
       <style>{`
-        @keyframes scrollPulse {
-          0%, 100% { opacity: 0.3; transform: scaleY(1); }
-          50% { opacity: 0.8; transform: scaleY(1.3); }
-        }
         .dot-nav {
           position: fixed;
           right: 1.5rem;
@@ -104,17 +70,19 @@ const goToSection = (index) => {
 
       <nav className="dot-nav">
         {Array.from({ length: totalSections }).map((_, i) => (
-          <button key={i} className={`dot ${active === i ? 'active' : ''}`} onClick={() => goToSection(i)} />
+          <button
+            key={i}
+            className={`dot ${active === i ? 'active' : ''}`}
+            onClick={() => goToSection(i)}
+          />
         ))}
       </nav>
 
-      <div>
-        <HeroSection />
-        <ServicesSection />
-        <WorkPreview />
-        <AboutTeaser />
-        <ContactCTA />
-      </div>
+      <HeroSection />
+      <ServicesSection />
+      <WorkPreview />
+      <AboutTeaser />
+      <ContactCTA />
     </>
   );
 }
