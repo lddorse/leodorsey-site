@@ -3,15 +3,17 @@
 /* ── Base ── */
 * { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
   background: #F7F4EF;
   font-family: 'DM Sans', sans-serif;
   color: #1a1917;
-  margin: 0;
 }
 
 /* ── Typography ── */
@@ -32,10 +34,13 @@ body {
 
 /* ── Snap sections ── */
 .snap-section {
-  min-height: 100dvh;
+  scroll-snap-align: start;
+  height: calc(100dvh - 64px);
+  min-height: calc(100dvh - 64px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 }
 
 /* ── Animations ── */
@@ -141,5 +146,9 @@ body {
 }
 
 @media (max-width: 430px) {
-  .snap-section { min-height: auto; }
+  .snap-section {
+    height: auto;
+    min-height: calc(100dvh - 64px);
+    overflow: visible;
+  }
 }

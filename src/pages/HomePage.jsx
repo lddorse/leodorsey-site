@@ -9,9 +9,11 @@ export default function HomePage() {
   const [active, setActive] = useState(0);
   const totalSections = 5;
 
-  // Track which section is visible for dot nav
   useEffect(() => {
-    const sections = document.querySelectorAll('.snap-section');
+    const scrollRoot = document.getElementById('scroll-root');
+    if (!scrollRoot) return;
+
+    const sections = scrollRoot.querySelectorAll('.snap-section');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -21,14 +23,16 @@ export default function HomePage() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5, root: scrollRoot }
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, []);
 
   const goToSection = (index) => {
-    const sections = document.querySelectorAll('.snap-section');
+    const scrollRoot = document.getElementById('scroll-root');
+    if (!scrollRoot) return;
+    const sections = scrollRoot.querySelectorAll('.snap-section');
     if (sections[index]) {
       sections[index].scrollIntoView({ behavior: 'smooth' });
     }
@@ -61,12 +65,10 @@ export default function HomePage() {
           background: #B87A5A;
           transform: scale(1.4);
         }
-        @media (max-width: 430px) {
+        @media (max-width: 768px) {
           .dot-nav { display: none; }
         }
       `}</style>
-
-      <div className="grain-overlay" />
 
       <nav className="dot-nav">
         {Array.from({ length: totalSections }).map((_, i) => (
